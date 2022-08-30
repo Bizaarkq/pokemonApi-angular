@@ -1,0 +1,26 @@
+<!-- <pre>{{pokemonList | json}}</pre> -->
+<div>
+    <mat-grid-list cols="5" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let pokemon of pokemonList" style="background-color:#B3E5FC">
+            <img 
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png">
+            <br>
+            <div>{{pokemon.nombre}}</div>
+            <!-- <div><a [routerLink]="['/pokemon', pokemon.id]">Detalle</a></div> -->
+            <button mat-mini-fab (click)="idPokemon = pokemon.id" color="primary">
+                <mat-icon>visibility</mat-icon>
+            </button>
+            
+        </mat-grid-tile>
+    </mat-grid-list>
+    <button mat-icon-button (click)="obtenerListadoPokemons(linkMenuAnterior)">
+        <mat-icon>navigate_before</mat-icon>
+    </button>
+    <button mat-icon-button (click)="obtenerListadoPokemons(linkMenuPosterior)">
+        <mat-icon>navigate_next</mat-icon>
+    </button>
+
+    <div style="display:flex; align-items:center">
+        <app-detalle-item [idpokemon]="idPokemon" (favorito)="mensajeFavorito($event)"></app-detalle-item>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<mat-card class="example-card"> 
+    <mat-card-header>
+      <div mat-card-avatar>
+        <button mat-icon-button (click)="setFavorito()">
+          <mat-icon>star</mat-icon>
+        </button>
+      </div>
+      <mat-card-title>
+        {{DetallePokemon.nombre}}
+      </mat-card-title>
+      <mat-card-subtitle>{{DetallePokemon.especie}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-md-image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{DetallePokemon.id ?? 1}}.png" >
+    <mat-card-content>
+      
+        <h2>Habilidades</h2>
+        <p *ngFor="let habilidad of DetallePokemon.habilidad">{{habilidad}}</p>
+
+        <div style="display: inline-block !important"><h2>Altura:</h2> <p>{{DetallePokemon.altura}}</p></div>
+        <h2>Peso:</h2>
+        <p>{{DetallePokemon.peso}}</p>
+        <h2>Tipo</h2>
+        <p *ngFor="let tipo of DetallePokemon.tipo">{{tipo}}</p>
+        <h2>Estadisticas</h2>
+        <p *ngFor="let stats of DetallePokemon.stats">{{stats.nombre}}: {{stats.valor}}</p>
+    </mat-card-content>
+  </mat-card>
